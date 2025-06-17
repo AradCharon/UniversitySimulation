@@ -18,8 +18,16 @@ public class Professor {
         professorList.add(this);
     }
 
+    public int getId() {
+        return id;
+    }
 
     public static Professor findById(int id) {
-
+        for (Professor professor : professorList) {
+            if (professor.getId() == id) {
+                return professor;
+            }
+        }
+        return null;
     }
 }

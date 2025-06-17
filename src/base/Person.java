@@ -17,7 +17,16 @@ public class Person {
         personList.add(this);
     }
 
-    public static Person findById(int id) {
+    public int getId() {
+        return id;
+    }
 
+    public static Person findById(int id) {
+        for (Person person : personList) {
+            if (person.getId() == id) {
+                return person;
+            }
+        }
+        return null;
     }
 }

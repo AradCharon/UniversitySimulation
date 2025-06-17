@@ -4,6 +4,7 @@ import base.Person;
 import java.util.ArrayList;
 
 public class Professor {
+    private static int nextId = 1;
     public static ArrayList<Professor> professorList = new ArrayList<>();
 
     private final int id;
@@ -11,8 +12,12 @@ public class Professor {
     public final int majorID;
 
     public Professor(int personID, int majorID) {
-
+        this.id = nextId++;
+        this.personID = personID;
+        this.majorID = majorID;
+        professorList.add(this);
     }
+
 
     public static Professor findById(int id) {
 

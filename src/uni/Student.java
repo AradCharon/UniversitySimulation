@@ -4,6 +4,7 @@ import base.Person;
 import java.util.ArrayList;
 
 public class Student {
+    private static int nextId = 1;
     public static ArrayList<Student> studentList = new ArrayList<>();
 
     private final int id;
@@ -13,7 +14,18 @@ public class Student {
     public String studentID;
 
     public Student(int personID, int entranceYear, int majorID) {
+        this.id = nextId++;
+        this.personID = personID;
+        this.entranceYear = entranceYear;
+        this.majorID = majorID;
 
+        Major major = Major.findById(majorID);
+        if (major != null) {
+            major.addStudent();
+        }
+
+        setStudentCode();
+        studentList.add(this);
     }
 
     private void setStudentCode() {

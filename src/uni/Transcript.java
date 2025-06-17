@@ -8,7 +8,7 @@ public class Transcript {
     public HashMap<Integer, Double> transcript;
 
     public Transcript(int studentID) {
-        
+
     }
 
     public void setGrade(int presentedCourseID, double grade) {

@@ -17,7 +17,16 @@ public class Course {
         courseList.add(this);
     }
 
-    public static Course findById(int id) {
+    public int getId() {
+        return id;
+    }
 
+    public static Course findById(int id) {
+        for (Course course : courseList) {
+            if (course.getId() == id) {
+                return course;
+            }
+        }
+        return null;
     }
 }

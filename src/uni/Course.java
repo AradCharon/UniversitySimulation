@@ -3,6 +3,7 @@ package uni;
 import java.util.ArrayList;
 
 public class Course {
+    private static int nextId = 1;
     public static ArrayList<Course> courseList = new ArrayList<>();
 
     private final int id;
@@ -10,7 +11,10 @@ public class Course {
     public final int credits;
 
     public Course(String title, int credits) {
-
+        this.id = nextId++;
+        this.title = title;
+        this.credits = credits;
+        courseList.add(this);
     }
 
     public static Course findById(int id) {

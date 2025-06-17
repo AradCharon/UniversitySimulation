@@ -38,6 +38,20 @@ public class Transcript {
     }
 
     public double getGPA() {
+        double sumOfGrades = 0.0;
+        int totalCreditHours = 0;
 
+        for (Integer courseId : transcript.keySet()) {
+            PresentedCourse course = PresentedCourse.findById(courseId);
+            Course courseInfo = Course.findById(course.courseID);
+            sumOfGrades += transcript.get(courseId) * courseInfo.credits;
+            totalCreditHours += courseInfo.credits;
+        }
+
+        if (totalCreditHours > 0) {
+            return sumOfGrades / totalCreditHours;
+        } else {
+            return 0.0;
+        }
     }
 }

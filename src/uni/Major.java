@@ -19,8 +19,17 @@ public class Major {
         majorList.add(this);
     }
 
-    public static Major findById(int id) {
+    public int getId() {
+        return id;
+    }
 
+    public static Major findById(int id) {
+        for (Major major : majorList) {
+            if (major.getId() == id) {
+                return major;
+            }
+        }
+        return null;
     }
 
     public void addStudent() {

@@ -22,7 +22,19 @@ public class Transcript {
     }
 
     public void printTranscript() {
+        Student student = Student.findById(studentID);
+        Person person = Person.findById(student.personID);
 
+        System.out.println("Student Transcript:");
+        System.out.println("Name: " + person.name);
+        System.out.println("Student ID: " + student.studentID);
+        System.out.println("---------------------------------------");
+
+        for (Integer courseId : transcript.keySet()) {
+            PresentedCourse course = PresentedCourse.findById(courseId);
+            Course courseInfo = Course.findById(course.courseID);
+            System.out.println(courseInfo.title + ": " + transcript.get(courseId));
+        }
     }
 
     public double getGPA() {

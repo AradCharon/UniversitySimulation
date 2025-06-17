@@ -21,11 +21,24 @@ public class PresentedCourse {
         presentedCourseList.add(this);
     }
 
-    public static PresentedCourse findById(int id) {
+    public int getId() {
+        return id;
+    }
 
+    public static PresentedCourse findById(int id) {
+        for (PresentedCourse pc : presentedCourseList) {
+            if (pc.getId() == id) {
+                return pc;
+            }
+        }
+        return null;
     }
 
     public void addStudent(int studentID) {
-
+        if (students.size() < capacity) {
+            students.add(studentID);
+        } else {
+            System.out.println("This course has reached full capacity.");
+        }
     }
 }

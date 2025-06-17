@@ -28,12 +28,22 @@ public class Student {
         studentList.add(this);
     }
 
-    private void setStudentCode() {
-
-    }
-
     public int getId() {
         return id;
+    }
+
+    private void setStudentCode() {
+        String lastTwoDigitsOfYear = String.valueOf(entranceYear % 1000);
+        String majorCode = (majorID < 10) ? "0" + majorID : "" + majorID;
+        String studentNumber;
+        if (id < 10) {
+            studentNumber = "00" + id;
+        } else if (id < 100) {
+            studentNumber = "0" + id;
+        } else {
+            studentNumber = "" + id;
+        }
+        this.studentID = lastTwoDigitsOfYear + majorCode + studentNumber;
     }
 
     public static Student findById(int id) {

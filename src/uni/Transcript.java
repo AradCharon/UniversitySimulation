@@ -13,7 +13,12 @@ public class Transcript {
     }
 
     public void setGrade(int presentedCourseID, double grade) {
-
+        PresentedCourse pc = PresentedCourse.findById(presentedCourseID);
+        if (pc != null && pc.students.contains(studentID)) {
+            transcript.put(presentedCourseID, grade);
+        } else {
+            System.out.println("Student is not enrolled in this course.");
+        }
     }
 
     public void printTranscript() {

@@ -33,6 +33,10 @@ public class Major {
     }
 
     public void addStudent() {
-
+        if (numberOfStudents < capacity) {
+            numberOfStudents++;
+        } else {
+            System.out.println("The " + name + " major has reached full capacity.");
+        }
     }
 }

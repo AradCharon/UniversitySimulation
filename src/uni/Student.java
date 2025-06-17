@@ -32,7 +32,16 @@ public class Student {
 
     }
 
-    public static Student findById(int id) {
+    public int getId() {
+        return id;
+    }
 
+    public static Student findById(int id) {
+        for (Student student : studentList) {
+            if (student.getId() == id) {
+                return student;
+            }
+        }
+        return null;
     }
 }
